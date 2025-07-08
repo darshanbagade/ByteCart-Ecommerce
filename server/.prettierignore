@@ -1,0 +1,6 @@
+/.vscode
+/node_modules
+/dist   -> (where compiled/built files are stored)
+*.env
+.env
+.env.*
