@@ -1,5 +1,6 @@
 import { Schema,model } from "mongoose";
-
+import jwt from 'jsonwebtoken'
+import bcrypt from 'bcrypt'
 const userSchema  = new Schema({
     username : {
         type : String,
@@ -33,14 +34,15 @@ const userSchema  = new Schema({
     role : {
         type:String ,
         enum : [ 'user' , 'admin'],
-        default : 'user'
+        default : 'user',
+        required : true
     },
     avatar : {
         type: String , //CloudinaryURL
     },
-    refreshToken : {
-        type : String
-    },
+    // refreshToken : {
+    //     type : String
+    // },
     dob:{
         type:Date
     }
@@ -48,14 +50,48 @@ const userSchema  = new Schema({
 }, { timestamps : true})
 
 
-export const User = model('User',userSchema);
+userSchema.pre('save', async function(next) {
+    if (!this.isModified('password')) {
+        return next();
+    }
+
+    this.password = await bcrypt.hash(this.password, 10);
+    next();
+})
 
 
+const ACCESS_TOKEN_EXPIRY = process.env.ACCESS_TOKEN_EXPIRY || '15m';
+const REFRESH_TOKEN_EXPIRY = process.env.REFRESH_TOKEN_EXPIRY || '7d';
 
-
-userSchema.methods.generateAccessToken = async(email,password,role)=>{
-    return jwt.sign(
-        {userId :user._id, password : user.password,email:user.email},
-        process.env.ACCESS_TOKEN_SECRET
+userSchema.methods.generateAccessToken =  function(){
+    return  jwt.sign(
+        {
+            _id :this._id,
+            username : this.username,
+            email:this.email,
+            fullname :this.fullname
+        },
+        process.env.ACCESS_TOKEN_SECRET,
+        {
+            expiresIn: ACCESS_TOKEN_EXPIRY || '15m'
+        }
     )
 }
+userSchema.methods.generateRefreshToken = function(){
+    return jwt.sign(
+        {
+            _id :this._id
+        },
+        process.env.REFRESH_TOKEN_SECRET,
+        {
+            expiresIn:  REFRESH_TOKEN_EXPIRY || '7d'
+        }
+    )
+}
+
+userSchema.methods.isPasswordCorrect = async function(password){
+    return await bcrypt.compare(password,this.password)
+}
+
+
+export const User = model('User',userSchema);
