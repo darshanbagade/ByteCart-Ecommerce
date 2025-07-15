@@ -33,14 +33,15 @@ const productSchema =  new mongoose.Schema({
     },
     brand : {
         type : String ,
-        default : ''
+        default : '',
+        required :true
     },
     features :{
         type: Array
     }, 
     owner : {
         type : mongoose.Schema.Types.ObjectId,
-        ref:'User'
+        ref:'User' // admin
     },
     category :{
         type: mongoose.Schema.Types.ObjectId,
@@ -50,10 +51,11 @@ const productSchema =  new mongoose.Schema({
         
     },
     reviews :{
-        
+        type : mongoose.Schema.Types.ObjectId,
+        ref:'Review'
     }
 },{
     timestamps : true
 })
 
-export const Product = mongoose.model('Model',productSchema);
+export const Product = mongoose.model('Product',productSchema);
