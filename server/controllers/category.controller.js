@@ -1,10 +1,11 @@
-import { ApiError } from "../utils/ApiError";
-import { asyncHandler } from "../utils/AsyncHandler";
+import { ApiError } from "../utils/ApiError.js";
+import { asyncHandler } from "../utils/AsyncHandler.js";
 import { Category } from "../models/category.model.js";
-import { ApiResponce } from "../utils/ApiResponse.";
-
+import { ApiResponce } from "../utils/ApiResponse.js";
 // -------------------( Create Category - Admin )---------------------
 const createCategory = asyncHandler( async(req, res) => {
+    console.log(req.body)
+    
     const { name, slug } = req.body
 
     if(!name || !slug){
@@ -43,9 +44,9 @@ const getAllCategories = asyncHandler( async (req, res)=>{
 
 //-----------------( Delete Category - Admin )-------------------
 const deleteCategory = asyncHandler( async(req, res) =>{
-    const {slug} = req.params;
-    const isDeleted = await Category.findOneAndDelete({
-        slug:slug
+    const {_id} = req.params;
+    const isDeleted = await Category.findByIdAndDelete({
+        _id
     })
     if(!isDeleted){
         throw new ApiError(400, "Category not found")
@@ -65,21 +66,20 @@ const deleteCategory = asyncHandler( async(req, res) =>{
 //-----------------( Update Category - Admin )--------------- 
 const updatedCategory = asyncHandler( async(req, res) =>{
 
-    const {slug} = req.params
-    const {name, newSlug} = req.body;
-    if(!slug){
+    const {_id} = req.params
+    const {name} = req.body;
+    if(!name){
         throw new ApiError(
             400,
-            "Missing required field(slug)."
+            "Missing required field."
         )
     }
 
 
-    const updatedCategory = await Category.findOneAndUpdate(
-        { slug },
+    const updatedCategory = await Category.findByIdAndUpdate(
+        { _id },
         {
             ...(name && {name}),
-            ...(newSlug && {slug : newSlug})
         },
         { new: true } // returns updated document
     );
@@ -98,3 +98,10 @@ const updatedCategory = asyncHandler( async(req, res) =>{
     )
 
 })
+
+export {
+    createCategory,
+    getAllCategories,
+    deleteCategory,
+    updatedCategory
+}
