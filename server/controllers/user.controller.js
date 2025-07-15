@@ -4,7 +4,7 @@ import { asyncHandler } from "../utils/AsyncHandler.js";
 import {getImagekit} from "../configs/imagekit.js";
 import fs from 'fs'
 import { Token } from "../models/token.model.js";
-import { ApiResponce } from "../utils/ApiResponse..js";
+import { ApiResponce } from "../utils/ApiResponse.js";
 import ms from 'ms';
 
 
