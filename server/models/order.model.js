@@ -10,10 +10,6 @@ const orderItemSchema = new mongoose.Schema({
     type: Number,
     required: true,
     min: 1
-  },
-  price: {
-    type: Number,
-    required: true
   }
 }, { _id: false });
 
@@ -60,7 +56,8 @@ const orderSchema = new mongoose.Schema({
   },
   totalAmount: {
     type: Number,
-    required: true
+    required: true,
+    default : 0
   }
 }, {
   timestamps: true
