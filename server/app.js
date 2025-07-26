@@ -25,9 +25,11 @@ import { userRouter } from './routes/user.route.js';
 import { categoryRouter } from './routes/category.route.js';
 import { productRouter } from './routes/product.route.js';
 import { cartRouter } from './routes/cart.route.js'
+import { orderRouter } from './routes/order.route.js';
 app.use('/api/v1/user',userRouter)
 app.use('/api/v1/category',categoryRouter)
 app.use('/api/v1/product',productRouter)
 app.use('/api/v1/cart',cartRouter)
+app.use('/api/v1/order', orderRouter)
 
 export {app}
