@@ -3,7 +3,7 @@ import { ApiError} from '../utils/ApiError.js'
 import { ApiResponce } from '../utils/ApiResponse.js'
 import { Order } from '../models/order.model.js';
 import { Product } from '../models/product.model.js';
-
+import {Cart} from '../models/cart.model.js'
 
 // ----------------- Order from Cart ------------------
 export const createOrderFromCart = asyncHandler(async (req, res) => {
