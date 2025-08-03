@@ -1,7 +1,7 @@
 import Home from "./Home";
-import { ProductDetails } from "./ProductDetails";
+import { ProductPage } from "./ProductPage";
 
 export{
     Home,
-    ProductDetails
+    ProductPage
 }
