@@ -6,7 +6,9 @@ function Home() {
         <Navbar/>
         <Hero/>
         <CategoryMenu/>
-        <ProductList/>
+        <ProductList category='Mobile'/>
+        <ProductList category='Laptop'/>
+        <ProductList category='Headphones'/>
         <Footer/>
         
     </div>
