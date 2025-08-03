@@ -22,7 +22,7 @@ const Navbar = () => {
               <input
                 type="text"
                 placeholder="Search..."
-                className="pl-10 pr-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="pl-10 pr-4 py-2 border rounded-full focus:outline-none focus:ring-1 focus:ring-black"
               />
               <svg
                 className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400"
@@ -40,7 +40,7 @@ const Navbar = () => {
             </div>
 
             {/* Cart Icon */}
-            <a href="/cart" className="p-2 text-gray-600 hover:text-blue-500">
+            <a href="/cart" className="p-2 text-gray-600 hover:text-black">
               <svg
                 className="h-6 w-6"
                 fill="none"
@@ -57,7 +57,7 @@ const Navbar = () => {
             </a>
 
             {/* User Account Icon */}
-            <a href="/account" className="p-2 text-gray-600 hover:text-blue-500">
+            <a href="/account" className="p-2 text-gray-600 hover:text-black">
               <svg
                 className="h-6 w-6"
                 fill="none"
