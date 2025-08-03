@@ -4,7 +4,7 @@ const Navbar = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
-    <div className='sticky top-0 py-2 z-50  bg-linear-to-b from-white via-white to-0'>
+    <div className='container mx-auto sticky top-0 py-2 z-50  bg-linear-to-b from-white via-white to-0'>
       <nav className="bg-white shadow-md mt-4 z-50 border-2 rounded-2xl ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
