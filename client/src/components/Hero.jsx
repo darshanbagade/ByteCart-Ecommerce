@@ -30,7 +30,7 @@ export const Hero = () => {
         <div className="md:w-1/2 ">
           <div className="relative">
         
-            <div className="w-full h-64 sm:h-80 px-14 bg-gray-600 rounded-lg flex items-center justify-center text-gray-300">
+            <div className="w-full h-64 sm:h-80 px-14 bg-gray-200 rounded-lg flex items-center justify-center text-gray-800">
               <span className="text-lg text-center">Latest Smartphone <br /> & Laptop</span>
             </div>  
           
