@@ -1,6 +1,6 @@
 import React from 'react'
 import { Footer, Navbar, ProductDetails, ProductList } from '../components/index';
-import { Iphone_01, Iphone_02, Iphone_03, Iphone_04} from '../assets/index';
+import { Iphone_01, Iphone_02, Iphone_03, Iphone_04} from '../assets';
 import { useParams } from 'react-router-dom';
 
 const ProductPage = () => {
@@ -24,7 +24,7 @@ const ProductPage = () => {
 
 
   return (
-    <div className='px-2 md:px-32 lg:px-32'>
+    <div >
       <Navbar/>
       <ProductDetails product={product}/>
       <ProductList category={product.category} productRange={8}/>
