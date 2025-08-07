@@ -24,10 +24,10 @@ export const CategoryMenu = () => {
               to={category.path}
               className={({ isActive }) =>
                 [
-                  'block text-black transition border-1 p-4 rounded-2xl',
+                  'block text-black transition border-2 p-4 rounded-2xl',
                   isActive
-                    ? 'bg-blue-500 text-white font-semibold'
-                    : 'hover:bg-gray-100 hover:text-gray-900',
+                    ? 'bg-white text-white font-semibold'
+                    : 'hover:bg-gray-100 transition-transform transform hover:-translate-y-1  hover:text-gray-900',
                 ].join(' ')
               }
               onClick={() => setIsOpen(false)} // Close menu on click for mobile
