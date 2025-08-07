@@ -2,7 +2,7 @@ import React from 'react'
 import { Navbar,Hero, CategoryMenu, ProductList, Footer } from '../components/index.js'
 function Home() {
   return (
-    <div className='px-2 md:px-32 lg:px-32'>
+    <div >
         <Navbar/>
         <Hero/>
         <CategoryMenu/>
