@@ -124,7 +124,7 @@ const ProductList = ({
   ];
 
   return (
-    <div className="my-10 container mx-auto">
+    <div className="my-10">
       {/* Mobiles Section */}
       <div className="my-4 text-xl font-semibold">{category}</div>
       <div>

@@ -5,7 +5,7 @@ import { Link, Links } from "react-router-dom";
 export const ProductCard = ({ product }) => {
   return (
    <Link to={`/${product.slug}`}>
-       <div className="border-2 w- lg:w-64 rounded-2xl bg-white transition-transform transform hover:-translate-y-2">
+       <div className="border-2 lg:w-55.5 rounded-2xl bg-white transition-transform transform hover:-translate-y-2">
       <img
         src={product.image || 'https://via.placeholder.com/200'}
         alt={product.name}
