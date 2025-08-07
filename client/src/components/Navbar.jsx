@@ -4,7 +4,7 @@ const Navbar = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
-    <div className='container mx-auto sticky top-0 py-2 z-50  bg-linear-to-b from-white via-white to-0'>
+    <div className='sticky top-0 py-2 z-50  bg-linear-to-b from-white via-white to-0'>
       <nav className="bg-white shadow-md mt-4 z-50 border-2 rounded-2xl ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
@@ -57,7 +57,7 @@ const Navbar = () => {
             </a>
 
             {/* User Account Icon */}
-            <a href="/account" className="p-2 text-gray-600 hover:text-black">
+            <a href="/account-menu" className="p-2 text-gray-600 hover:text-black">
               <svg
                 className="h-6 w-6"
                 fill="none"
@@ -79,7 +79,7 @@ const Navbar = () => {
             {/* Search Icon */}
             <button
               onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className="p-2 text-gray-600 hover:text-blue-500"
+              className="p-2 text-gray-600 hover:text-black"
             >
               <svg
                 className="h-6 w-6"
@@ -97,7 +97,7 @@ const Navbar = () => {
             </button>
 
             {/* Cart Icon */}
-            <a href="/cart" className="p-2 text-gray-600 hover:text-blue-500">
+            <a href="/cart" className="p-2 text-gray-600 hover:text-black">
               <svg
                 className="h-6 w-6"
                 fill="none"
@@ -114,7 +114,7 @@ const Navbar = () => {
             </a>
 
             {/* User Account Icon */}
-            <a href="/account" className="p-2 text-gray-600 hover:text-blue-500">
+            <a href="/account-menu" className="p-2 text-gray-600 hover:text-black">
               <svg
                 className="h-6 w-6"
                 fill="none"
@@ -139,7 +139,7 @@ const Navbar = () => {
               <input
                 type="text"
                 placeholder="Search..."
-                className="w-full pl-10 pr-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full pl-10 pr-4 py-2 border rounded-full focus:outline-none focus:ring-1 focus:ring-black"
               />
               <svg
                 className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400"
