@@ -111,7 +111,7 @@ const addProduct = asyncHandler( async(req, res) =>{
 const getPoductList = asyncHandler( async (req,res) =>{
     try {
         
-        const products = await Product.find({})
+        const products = await Product.find({}).populate('category')
 
         return res
         .status(200)
