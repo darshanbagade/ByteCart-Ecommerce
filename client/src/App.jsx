@@ -1,6 +1,6 @@
 import { Routes , Route, BrowserRouter } from "react-router-dom";
 import {Home, ProductPage, AccountMenuPage, AccountPage, OrderPage, Dashboard,Layout, CartLayout, Orders, Product, Category, Cart} from "./pages/index";
-import { AddProduct, EditProduct, EditCategory, AddCategory, Checkout } from "./components";
+import { AddProduct, EditProduct, EditCategory, AddCategory, Checkout,Login } from "./components/index";
 import {ScrollToTop} from './utils/ScrollToTop'
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
         <ScrollToTop/>
         <Routes>
           <Route path='/' element={ <Home/> } />
+          <Route path='/login' element={ <Login/> } />
           <Route path="/:slug" element={ <ProductPage/> }/>
           <Route path="/cart" element={ <CartLayout/> }>
             <Route index element={<Cart/>}/>
