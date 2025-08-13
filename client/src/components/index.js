@@ -33,6 +33,8 @@ import AddCategory from "./admin/category/AddCategory";
 import AdminCategories from "./admin/category/AdminCategories";
 
 
+import { Loader } from "./Loader";
+
 export {
     Navbar,
     Hero,
@@ -62,9 +64,21 @@ export {
     //category
     AdminCategories,
     AddCategory,
-    EditCategory
+    EditCategory,
+
+    Loader
 
 
     
     
 }
+
+
+//Auth
+import Login from "./auth/Login";
+export {
+    Login
+    
+}
+
+
