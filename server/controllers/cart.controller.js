@@ -6,22 +6,23 @@ import { ApiResponce} from  "../utils/ApiResponse.js"
 //---------------------Add To Cart - User ------------------------
 const addToCart = asyncHandler(async (req, res) => {
     const userId = req.user._id;
-    const { productId, quantity, price } = req.body;
+    const {_id} = req.params// productId
+    const { quantity, price } = req.body;
 
     let cart = await Cart.findOne({ user: userId });
 
     if (!cart) {
         cart = await Cart.create({
             user: userId,
-            items: [{ product: productId, quantity, priceAtAdd: price }],
+            items: [{ product: _id, quantity, priceAtAdd: price }],
             cartTotal: quantity * price,
         });
     } else {
-        const itemIndex = cart.items.findIndex((item) => item.product.toString() === productId);
+        const itemIndex = cart.items.findIndex((item) => item.product.toString() === _id);
         if (itemIndex > -1) {
             cart.items[itemIndex].quantity += quantity;
         } else {
-            cart.items.push({ product: productId, quantity, priceAtAdd: price });
+            cart.items.push({ product: _id, quantity, priceAtAdd: price });
         }
         cart.cartTotal = cart.items.reduce((total, item) => total + item.quantity * item.priceAtAdd, 0);
         await cart.save();
@@ -69,7 +70,7 @@ const getCartList = asyncHandler( async(req,res) =>{
 //---------------------Remove Item from Cart - User ------------------------
 const removeFromCart = asyncHandler(async (req, res) => {
     const userId = req.user._id;
-    const { productId } = req.body;
+    const { productId } = req.params;
 
     if(!productId){
         throw ApiError(404,"Product Id is required.");
@@ -118,7 +119,8 @@ const clearCart = asyncHandler(async (req, res) => {
 const updateQuantity = asyncHandler(async (req, res) =>{
     try{
         const userId = req.user._id
-        const {productId, quantity} = req.body;
+        const {quantity} = req.body;
+        const { productId} = req.params;
 
         const cart = await Cart.findOne({user :userId})
         if (!cart) throw new ApiError(404, "Cart not found");
