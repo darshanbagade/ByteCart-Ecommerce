@@ -133,7 +133,7 @@ const getProductDetails = asyncHandler( async (req,res) =>{
     try {
         
         const {slug} = req.params
-        console.log(slug);
+        // console.log(slug);
         
         if(!slug){
             throw new ApiError(400,
