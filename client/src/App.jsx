@@ -1,15 +1,34 @@
 import { Routes , Route, BrowserRouter } from "react-router-dom";
 import {Home, ProductPage, AccountMenuPage, AccountPage, OrderPage, Dashboard,Layout, CartLayout, Orders, Product, Category, Cart} from "./pages/index";
-import { AddProduct, EditProduct, EditCategory, AddCategory, Checkout,Login } from "./components/index";
+import { AddProduct, EditProduct, EditCategory, AddCategory, Checkout,Login, Signup } from "./components/index";
 import {ScrollToTop} from './utils/ScrollToTop'
+import { Toaster } from "react-hot-toast";
 function App() {
   return (
     <div  className='container mx-auto px-2 md:px-32 lg:px-32'>
       <BrowserRouter>
         <ScrollToTop/>
+          <Toaster 
+          position="top-right"
+          toastOptions={{
+            duration: 4000,
+            style: {
+              background: '#363636',
+              color: '#fff',
+            },
+            success: {
+              duration: 3000,
+              theme: {
+                primary: 'green',
+                secondary: 'black',
+              },
+            },
+          }}
+        />
         <Routes>
           <Route path='/' element={ <Home/> } />
           <Route path='/login' element={ <Login/> } />
+          <Route path='/signup' element={ <Signup/> } />
           <Route path="/:slug" element={ <ProductPage/> }/>
           <Route path="/cart" element={ <CartLayout/> }>
             <Route index element={<Cart/>}/>
