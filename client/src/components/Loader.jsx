@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Loader = () => {
+const Loader = ({
+  className = ""
+}) => {
   return (
-    <div className="flex justify-center items-center h-screen mx-[50] ">
-      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+    <div className="flex relative justify-center items-center h-full mx-[50] ">
+      <div className={`animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 ${className}`}></div>
     </div>
   );
 };
